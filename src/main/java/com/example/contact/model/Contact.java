@@ -2,6 +2,7 @@ package com.example.contact.model;
 
 import jakarta.persistence.*;
 
+// Описание контакта и его методы
 @Entity
 @Table(name = "contacts")
 public class Contact {
