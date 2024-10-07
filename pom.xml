@@ -10,7 +10,7 @@
 <properties>
     <java.version>11</java.version>
     <spring.version>5.3.25</spring.version>
-    <groovy.version>3.0.8</groovy.version> <!-- Укажите корректную версию Groovy -->
+    <groovy.version>3.0.12</groovy.version>
 </properties>
 
 <dependencies>
@@ -43,7 +43,7 @@
     <dependency>
         <groupId>org.codehaus.groovy</groupId>
         <artifactId>groovy</artifactId>
-        <version>${groovy.version}</version> <!-- Добавляем зависимость Groovy -->
+        <version>${groovy.version}</version>
     </dependency>
 </dependencies>
 

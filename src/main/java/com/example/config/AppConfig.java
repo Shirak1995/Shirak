@@ -28,6 +28,6 @@ class MySingletonBean {
 
 class MyPrototypeBean {
     public MyPrototypeBean() {
-        System.out.println("MyPrototypeBean created java");
+        System.out.println("MyPrototypeBean created");
     }
 }

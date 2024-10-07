@@ -19,7 +19,7 @@ public class Main {
         xmlContext.getBean("myPrototypeBean");
 
         // Spring Groovy Configuration
-        GenericGroovyApplicationContext groovyContext = new GenericGroovyApplicationContext("classpath:application.groovy");
+        ApplicationContext groovyContext = new GenericGroovyApplicationContext("classpath:application.groovy");
         groovyContext.getBean("mySingletonBean");
         groovyContext.getBean("myPrototypeBean");
     }
