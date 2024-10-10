@@ -1,4 +1,4 @@
-beans = {
+beans {
     mySingletonBean(MySingletonBean) { bean ->
         bean.scope = 'singleton'
     }
