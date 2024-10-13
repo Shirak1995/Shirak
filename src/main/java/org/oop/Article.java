@@ -8,7 +8,6 @@ public class Article {
     public Long authorId;
 
     // Конструктор по умолчанию
-    // YAGNI: в данном коде этот конструктор нигде не используется
     public Article() {
     }
 
