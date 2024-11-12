@@ -4,6 +4,6 @@ import com.example.amphibians.data.model.Amphibian
 import retrofit2.http.GET
 
 interface AmphibiansApiService {
-    @GET ("amphibians_notvalid_url")
+    @GET ("amphibians")
     suspend fun getAmphibians(): List<Amphibian>
 }
