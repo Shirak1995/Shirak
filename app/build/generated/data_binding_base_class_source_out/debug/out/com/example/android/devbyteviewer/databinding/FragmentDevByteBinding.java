@@ -4,10 +4,8 @@ package com.example.android.devbyteviewer.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
 import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
@@ -19,23 +17,15 @@ import java.lang.Object;
 
 public abstract class FragmentDevByteBinding extends ViewDataBinding {
   @NonNull
-  public final ProgressBar loadingSpinner;
-
-  @NonNull
   public final RecyclerView recyclerView;
-
-  @NonNull
-  public final SearchView searchView;
 
   @Bindable
   protected DevByteViewModel mViewModel;
 
   protected FragmentDevByteBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      ProgressBar loadingSpinner, RecyclerView recyclerView, SearchView searchView) {
+      RecyclerView recyclerView) {
     super(_bindingComponent, _root, _localFieldCount);
-    this.loadingSpinner = loadingSpinner;
     this.recyclerView = recyclerView;
-    this.searchView = searchView;
   }
 
   public abstract void setViewModel(@Nullable DevByteViewModel viewModel);

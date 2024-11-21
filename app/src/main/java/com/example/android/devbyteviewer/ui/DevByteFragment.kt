@@ -16,7 +16,7 @@
 
 package com.example.android.devbyteviewer.ui
 
-/*import android.content.Intent
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -222,9 +222,9 @@ class DevByteViewHolder(val viewDataBinding: DevbyteItemBinding) :
         @LayoutRes
         val LAYOUT = R.layout.devbyte_item
     }
-}*/
+}
 
-import android.content.Intent
+/*import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -367,6 +367,6 @@ class DevByteViewHolder(val viewDataBinding: DevbyteItemBinding) :
         @LayoutRes
         val LAYOUT = R.layout.devbyte_item
     }
-}
+}*/
 
 

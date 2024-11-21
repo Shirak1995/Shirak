@@ -42,7 +42,7 @@ class DevByteActivity : AppCompatActivity() {
         if (launchCount % 3 != 0) {
             setContentView(R.layout.activity_dev_byte_viewer)
 
-            val searchView: SearchView = findViewById(R.id.search_view)
+            /*val searchView: SearchView = findViewById(R.id.search_view)
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     // Здесь вы обрабатываете ввод и выполнение поиска
@@ -53,7 +53,7 @@ class DevByteActivity : AppCompatActivity() {
                     // Здесь вы обрабатываете ввод текста в поле поиска
                     return false
                 }
-            })
+            })*/
         } else {
             setContentView(R.layout.activity_screen_3)
         }

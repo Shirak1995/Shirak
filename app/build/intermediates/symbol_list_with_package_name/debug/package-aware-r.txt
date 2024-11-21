@@ -1245,7 +1245,6 @@ id line1
 id line3
 id listMode
 id list_item
-id loading_spinner
 id masked
 id media_actions
 id message
@@ -1303,7 +1302,6 @@ id search_go_btn
 id search_mag_icon
 id search_plate
 id search_src_text
-id search_view
 id search_voice_btn
 id select_dialog_listview
 id selected
