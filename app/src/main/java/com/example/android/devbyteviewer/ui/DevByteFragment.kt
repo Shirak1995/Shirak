@@ -128,4 +128,3 @@ class DevByteViewHolder(val viewDataBinding: DevbyteItemBinding) :
         val LAYOUT = R.layout.devbyte_item
     }
 }
-

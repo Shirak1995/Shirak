@@ -37,7 +37,6 @@
             android:layout_height="wrap_content"
             android:iconifiedByDefault="false"
             android:layout_gravity="top" />
-
     </FrameLayout>
          
 

@@ -14,9 +14,9 @@ class DevByteActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("app_prefs", MODE_PRIVATE)
         val launchCount = sharedPreferences.getInt("launch_count", 0) + 1
         sharedPreferences.edit().putInt("launch_count", launchCount).apply()
+
         if (launchCount % 3 == 1) {
             setContentView(R.layout.activity_dev_byte_viewer)
-
         } else if (launchCount % 3 == 2) {
             setContentView(R.layout.activity_dev_byte_viewer_search)
         }

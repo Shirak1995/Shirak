@@ -73,7 +73,7 @@ class DevByteFragmentSearch : Fragment() {
             adapter = viewModelAdapter
         }
 
-        val searchView = binding.root.findViewById<SearchView>(R.id.search_view) // Убедитесь, что вы добавили SearchView в ваш layout
+        val searchView = binding.root.findViewById<SearchView>(R.id.search_view)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 viewModel.updateSearchQuery(query ?: "")
@@ -102,7 +102,3 @@ class DevByteFragmentSearch : Fragment() {
             return Uri.parse("vnd.youtube:" + httpUri.getQueryParameter("v"))
         }
 }
-
-
-
- 

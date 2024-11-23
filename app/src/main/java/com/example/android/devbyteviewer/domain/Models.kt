@@ -8,6 +8,5 @@ data class DevByteVideo(val title: String,
                         val updated: String,
                         val thumbnail: String) {
 
-    val shortDescription: String
-        get() = description.smartTruncate(200)
+    val shortDescription: String get() = description.smartTruncate(200)
 }

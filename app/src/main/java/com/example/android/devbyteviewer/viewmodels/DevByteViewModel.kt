@@ -63,7 +63,6 @@ class DevByteViewModel(application: Application) : AndroidViewModel(application)
     }
 
     private val _searchQuery = MutableLiveData<String>()
-    val searchQuery: LiveData<String> get() = _searchQuery
 
     val filteredPlaylist: LiveData<List<DevByteVideo>> = Transformations.switchMap(_searchQuery) { query ->
         if (query.isNullOrEmpty()) {

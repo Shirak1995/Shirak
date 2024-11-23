@@ -14,6 +14,7 @@ class RefreshDataWorker(appContext: Context, params: WorkerParameters) :
     companion object {
         const val WORK_NAME = "com.example.android.devbyteviewer.work.RefreshDataWorker"
     }
+
     override suspend fun doWork(): Result {
         val database = getDatabase(applicationContext)
         val repository = VideosRepository(database)
