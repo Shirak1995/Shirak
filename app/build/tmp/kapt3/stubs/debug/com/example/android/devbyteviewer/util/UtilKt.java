@@ -6,9 +6,6 @@ import java.lang.System;
 public final class UtilKt {
     private static final java.util.List<java.lang.String> PUNCTUATION = null;
     
-    /**
-     * Truncate long text with a preference for word boundaries and without trailing punctuation.
-     */
     @org.jetbrains.annotations.NotNull()
     public static final java.lang.String smartTruncate(@org.jetbrains.annotations.NotNull()
     java.lang.String $this$smartTruncate, int length) {

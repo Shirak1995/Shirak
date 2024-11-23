@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2019 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.android.devbyteviewer.viewmodels
 
 import android.app.Application
@@ -26,72 +10,30 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.android.devbyteviewer.database.getDatabase
 import com.example.android.devbyteviewer.domain.DevByteVideo
-import com.example.android.devbyteviewer.network.DevByteNetwork
-import com.example.android.devbyteviewer.network.asDomainModel
 import com.example.android.devbyteviewer.repository.VideosRepository
 import kotlinx.coroutines.*
 import java.io.IOException
 
-/**
- * DevByteViewModel designed to store and manage UI-related data in a lifecycle conscious way. This
- * allows data to survive configuration changes such as screen rotations. In addition, background
- * work such as fetching network results can continue through configuration changes and deliver
- * results after the new Fragment or Activity is available.
- *
- * @param application The application that this viewmodel is attached to, it's safe to hold a
- * reference to applications across rotation since Application is never recreated during actiivty
- * or fragment lifecycle events.
- */
 class DevByteViewModel(application: Application) : AndroidViewModel(application) {
 
-
-    /**
-     * The data source this ViewModel will fetch results from.
-     */
     private val videosRepository = VideosRepository(getDatabase(application))
 
-    /**
-     * A playlist of videos displayed on the screen.
-     */
     val playlist = videosRepository.videos
 
-    /**
-     * Event triggered for network error. This is private to avoid exposing a
-     * way to set this value to observers.
-     */
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
-    /**
-     * Event triggered for network error. Views should use this to get access
-     * to the data.
-     */
     val eventNetworkError: LiveData<Boolean>
         get() = _eventNetworkError
 
-    /**
-     * Flag to display the error message. This is private to avoid exposing a
-     * way to set this value to observers.
-     */
     private var _isNetworkErrorShown = MutableLiveData<Boolean>(false)
 
-    /**
-     * Flag to display the error message. Views should use this to get access
-     * to the data.
-     */
     val isNetworkErrorShown: LiveData<Boolean>
         get() = _isNetworkErrorShown
 
-    /**
-     * init{} is called immediately when this ViewModel is created.
-     */
     init {
         refreshDataFromRepository()
     }
 
-    /**
-     * Refresh data from the repository. Use a coroutine launch to run in a
-     * background thread.
-     */
     private fun refreshDataFromRepository() {
         viewModelScope.launch {
             try {
@@ -100,24 +42,16 @@ class DevByteViewModel(application: Application) : AndroidViewModel(application)
                 _isNetworkErrorShown.value = false
 
             } catch (networkError: IOException) {
-                // Show a Toast error message and hide the progress bar.
                 if(playlist.value.isNullOrEmpty())
                     _eventNetworkError.value = true
             }
         }
     }
 
-
-    /**
-     * Resets the network error flag.
-     */
     fun onNetworkErrorShown() {
         _isNetworkErrorShown.value = true
     }
 
-    /**
-     * Factory for constructing DevByteViewModel with parameter
-     */
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(DevByteViewModel::class.java)) {
@@ -128,30 +62,13 @@ class DevByteViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-
-
-
-    // Новый свойство для хранения текущего поискового запроса
     private val _searchQuery = MutableLiveData<String>()
     val searchQuery: LiveData<String> get() = _searchQuery
 
-    // Новый свойство для хранения списка отфильтрованных видео
-    /*val filteredPlaylist: LiveData<List<DevByteVideo>> = Transformations.switchMap(_searchQuery) { query ->
-        if (query.isNullOrEmpty()) {
-            playlist // Возвращает весь список, если запрос пуст
-        } else {
-            MutableLiveData(playlist.value?.filter { video ->
-                video.title.contains(query, ignoreCase = true) // Фильтруем по заголовку
-            })
-        }
-    }*/
-
     val filteredPlaylist: LiveData<List<DevByteVideo>> = Transformations.switchMap(_searchQuery) { query ->
-        // Когда запрос пуст, возвращаем все видео
         if (query.isNullOrEmpty()) {
             playlist // playlist должен быть LiveData<List<DevByteVideo>> тоже
         } else {
-            // Фильтруем видео по заголовку
             Transformations.map(playlist) { fullPlaylist ->
                 fullPlaylist.filter { video ->
                     video.title.contains(query, ignoreCase = true)
@@ -160,7 +77,6 @@ class DevByteViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    // Добавляем метод для обновления поискового запроса
     fun updateSearchQuery(query: String) {
         _searchQuery.value = query
     }
