@@ -1,7 +1,15 @@
 [
     {
+        "merged": "C:\\Users\\Admin\\Desktop\\DevBytesWorkManager\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_dev_byte_search.xml",
+        "source": "C:\\Users\\Admin\\Desktop\\DevBytesWorkManager\\app\\src\\main\\res\\layout\\fragment_dev_byte_search.xml"
+    },
+    {
         "merged": "C:\\Users\\Admin\\Desktop\\DevBytesWorkManager\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_dev_byte.xml",
         "source": "C:\\Users\\Admin\\Desktop\\DevBytesWorkManager\\app\\src\\main\\res\\layout\\fragment_dev_byte.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\DevBytesWorkManager\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_dev_byte_no_search.xml",
+        "source": "C:\\Users\\Admin\\Desktop\\DevBytesWorkManager\\app\\src\\main\\res\\layout\\fragment_dev_byte_no_search.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\DevBytesWorkManager\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\devbyte_item.xml",

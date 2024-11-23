@@ -2,6 +2,9 @@ package com.example.android.devbyteviewer.ui;
 
 import java.lang.System;
 
+/**
+ * ViewHolder for DevByte items. All work is done by data binding.
+ */
 @kotlin.Metadata(mv = {1, 1, 16}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000 \u00072\u00020\u0001:\u0001\u0007B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004R\u0011\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006\u00a8\u0006\b"}, d2 = {"Lcom/example/android/devbyteviewer/ui/DevByteViewHolder;", "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "viewDataBinding", "Lcom/example/android/devbyteviewer/databinding/DevbyteItemBinding;", "(Lcom/example/android/devbyteviewer/databinding/DevbyteItemBinding;)V", "getViewDataBinding", "()Lcom/example/android/devbyteviewer/databinding/DevbyteItemBinding;", "Companion", "app_debug"})
 public final class DevByteViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
     @org.jetbrains.annotations.NotNull()

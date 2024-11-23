@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.example.android.devbyteviewer.databinding.DevbyteItemBindingImpl;
 import com.example.android.devbyteviewer.databinding.FragmentDevByteBindingImpl;
+import com.example.android.devbyteviewer.databinding.FragmentDevByteNoSearchBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
 import java.lang.Object;
@@ -23,11 +24,14 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_FRAGMENTDEVBYTE = 2;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(2);
+  private static final int LAYOUT_FRAGMENTDEVBYTENOSEARCH = 3;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(3);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.android.devbyteviewer.R.layout.devbyte_item, LAYOUT_DEVBYTEITEM);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.android.devbyteviewer.R.layout.fragment_dev_byte, LAYOUT_FRAGMENTDEVBYTE);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.android.devbyteviewer.R.layout.fragment_dev_byte_no_search, LAYOUT_FRAGMENTDEVBYTENOSEARCH);
   }
 
   @Override
@@ -50,6 +54,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new FragmentDevByteBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for fragment_dev_byte is invalid. Received: " + tag);
+        }
+        case  LAYOUT_FRAGMENTDEVBYTENOSEARCH: {
+          if ("layout/fragment_dev_byte_no_search_0".equals(tag)) {
+            return new FragmentDevByteNoSearchBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for fragment_dev_byte_no_search is invalid. Received: " + tag);
         }
       }
     }
@@ -107,11 +117,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(2);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(3);
 
     static {
       sKeys.put("layout/devbyte_item_0", com.example.android.devbyteviewer.R.layout.devbyte_item);
       sKeys.put("layout/fragment_dev_byte_0", com.example.android.devbyteviewer.R.layout.fragment_dev_byte);
+      sKeys.put("layout/fragment_dev_byte_no_search_0", com.example.android.devbyteviewer.R.layout.fragment_dev_byte_no_search);
     }
   }
 }

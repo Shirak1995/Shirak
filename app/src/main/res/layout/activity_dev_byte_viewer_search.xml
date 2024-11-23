@@ -30,14 +30,12 @@
         android:iconifiedByDefault="false"
         android:queryHint="Search" />
 
-
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/my_nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        app:navGraph="@navigation/nav_graph"
-        app:defaultNavHost="true"
-        android:layout_marginTop="?android:attr/actionBarSize"/>
+        app:navGraph="@navigation/nav_graph_search"
+        app:defaultNavHost="true"/>
 
 </FrameLayout>

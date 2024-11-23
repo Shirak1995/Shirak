@@ -24,6 +24,6 @@
     <fragment
         android:id="@+id/devByte"
         android:name="com.example.android.devbyteviewer.ui.DevByteFragment"
-        android:label="fragment_dev_byte"
-        tools:layout="@layout/fragment_dev_byte" />
+        android:label="fragment_dev_byte_no_search"
+        tools:layout="@layout/fragment_dev_byte_no_search" />
 </navigation>

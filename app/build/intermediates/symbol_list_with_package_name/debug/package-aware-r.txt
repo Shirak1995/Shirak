@@ -1257,6 +1257,7 @@ id multiply
 id my_nav_host_fragment
 id nav_controller_view_tag
 id nav_graph
+id nav_graph_search
 id navigation_header_container
 id never
 id none
@@ -1427,6 +1428,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_dev_byte_viewer
+layout activity_dev_byte_viewer_search
 layout activity_screen_3
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -1445,6 +1447,7 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout devbyte_item
 layout fragment_dev_byte
+layout fragment_dev_byte_no_search
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
@@ -1469,6 +1472,7 @@ layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation nav_graph
+navigation nav_graph_search
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

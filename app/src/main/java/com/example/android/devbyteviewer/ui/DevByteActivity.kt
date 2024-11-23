@@ -39,22 +39,16 @@ class DevByteActivity : AppCompatActivity() {
         val launchCount = sharedPreferences.getInt("launch_count", 0) + 1
 
         sharedPreferences.edit().putInt("launch_count", launchCount).apply()
-        if (launchCount % 3 != 0) {
+        if (launchCount % 3 == 1) {
             setContentView(R.layout.activity_dev_byte_viewer)
+            Log.d("остаток ", "1 без поиска")
 
-            val searchView: SearchView = findViewById(R.id.search_view)
-            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String?): Boolean {
-                    // Здесь вы обрабатываете ввод и выполнение поиска
-                    return false
-                }
-
-                override fun onQueryTextChange(newText: String?): Boolean {
-                    // Здесь вы обрабатываете ввод текста в поле поиска
-                    return false
-                }
-            })
-        } else {
+        } else if (launchCount % 3 == 2) {
+            Log.d("остаток ", "2 поиск")
+            setContentView(R.layout.activity_dev_byte_viewer_search)
+        }
+        else {
+            Log.d("остаток ", "0")
             setContentView(R.layout.activity_screen_3)
         }
     }

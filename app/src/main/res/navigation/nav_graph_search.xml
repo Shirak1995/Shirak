@@ -15,22 +15,15 @@
   ~ limitations under the License.
   -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.DevByteActivity">
-
-    <!-- Поле для поиска -->
-
+    android:id="@+id/nav_graph_search"
+    app:startDestination="@id/devByte">
 
     <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/my_nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        app:navGraph="@navigation/nav_graph"
-        app:defaultNavHost="true"/>
-
-</FrameLayout>
+        android:id="@+id/devByte"
+        android:name="com.example.android.devbyteviewer.ui.DevByteFragmentSearch"
+        android:label="fragment_dev_byte"
+        tools:layout="@layout/fragment_dev_byte" />
+</navigation>
