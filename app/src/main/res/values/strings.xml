@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Football</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="players_list_fragment_label">Players</string>
+    <string name="detail_fragment_label">Player Info</string>
+    <string name="back_button">Back</string>
+    <string name="honours">Honours:</string>
+
+    <string name="goalkeeper">Goalkeeper</string>
+    <string name="defender">Defender</string>
+    <string name="midfielder">Midfielder</string>
+    <string name="forward">Forward</string>
+
+    <string name="goalkeeper_details">The goalkeeper\'s main role is to stop the opposing team from scoring (putting the ball over the goal-line of the goal).</string>
+    <string name="defender_details">Defender is an outfield player whose primary role is to stop attacks during the game and prevent the opposition from scoring.</string>
+    <string name="midfielder_details">A midfielder takes an outfield position primarily in the middle of the pitch.</string>
+    <string name="forward_details">A forward (attacker or striker) is an outfield position which primarily plays further up the pitch than midfielders and defenders.</string>
+
+    <string name="neuer">Manuel Neuer</string>
+    <string name="neuer_short_info">Germany \n1986 \nBayern Munich, Schalke 04</string>
+    <string name="neuer_honours">
+Bayern Munich\nBundesliga: 2012–13, 2013–14, 2014–15, 2015–16, 2016–17, 2017–18, 2018–19, 2019–20, 2020–21, 2021–22, 2022–23\nDFB-Pokal: 2012–13, 2013–14, 2015–16, 2018–19, 2019–20\nDFL-Supercup: 2012, 2016, 2018, 2020, 2021, 2022\nUEFA Champions League: 2012–13, 2019–20\nUEFA Super Cup: 2013, 2020\nFIFA Club World Cup: 2013, 2020\n\nGermany U21\nUEFA European Under-21 Championship: 2009\nGermany\nFIFA World Cup: 2014; third place: 2010\n</string>
+    <string name="buffon">Gianluigi Buffon</string>
+    <string name="buffon_short_info">Italy \n1978 \nJuventus, Parma</string>
+    <string name="van_der_sar">Edwin van der Sar</string>
+    <string name="van_der_sar_short_info">Netherlands \n1970 \nAjax, Manchester United</string>
+    <string name="casillas">Iker Casillas</string>
+    <string name="casillas_short_info">Spain \n1981 \nReal Madrid</string>
+    <string name="cech">Petr Chech</string>
+    <string name="chech_short_info">Czech Republic \n1982 \nChelsea, Arsenal</string>
+
+    <string name="maldini">Paolo Maldini</string>
+    <string name="maldini_short_info">Italy \n1968 \nMilan</string>
+    <string name="vidic">Nemanja Vidic</string>
+    <string name="vidic_short_info">Serbia \n1981 \nManchester United</string>
+    <string name="zanetti">Javier Zanetti</string>
+    <string name="zanetti_short_info">Argentina \n1973 \nInter</string>
+    <string name="ferdinand">Rio Ferdinand</string>
+    <string name="ferdinand_short_info">England \n1978 \nManchester United</string>
+    <string name="puyol">Carles Puyol</string>
+    <string name="puyol_short_info">Spain \n1978 \nBarcelona</string>
+
+    <string name="scholes">Paul Scholes</string>
+    <string name="scholes_short_info">England \n1974 \nManchester United</string>
+    <string name="kaka">Kaka</string>
+    <string name="kaka_short_info">Brazil \n1982 \nMilan, Real Madrid</string>
+    <string name="iniesta">Andres Iniesta</string>
+    <string name="iniesta_short_info">Spain \n1984 \nBarcelona</string>
+    <string name="kroos">Toni Kroos</string>
+    <string name="kroos_short_info">Germany \n1990 \nReal Madrid, Bayern Munich</string>
+    <string name="lampard">Frank Lampard</string>
+    <string name="lampard_short_info">England \n1978 \nChelsea</string>
+
+    <string name="rooney">Wayne Rooney</string>
+    <string name="rooney_short_info">England \n1985 \nManchester United</string>
+    <string name="rvn">Ruud van Nistelrooy</string>
+    <string name="rvn_short_info">Brazil \n1976 \nManchester United, Real Madrid</string>
+    <string name="henry">Thierry Henry</string>
+    <string name="henry_short_info">France \n1977 \nArsenal, Barcelona</string>
+    <string name="del_piero">Alessandro Del Piero</string>
+    <string name="del_piero_short_info">Italy \n1974 \nJuventus</string>
+    <string name="suarez">Luis Suarez</string>
+    <string name="suarez_short_info">Uruguay \n1987 \nLiverpool, Barcelona</string>
+
+</resources>
