@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">30 Days Of Cinema</string>
+
+    <string name="day_1">Day 1</string>
+    <string name="day_2">Day 2</string>
+    <string name="day_3">Day 3</string>
+    <string name="day_4">Day 4</string>
+    <string name="day_5">Day 5</string>
+    <string name="day_6">Day 6</string>
+    <string name="day_7">Day 7</string>
+    <string name="day_8">Day 8</string>
+    <string name="day_9">Day 9</string>
+    <string name="day_10">Day 10</string>
+    <string name="day_11">Day 11</string>
+    <string name="day_12">Day 12</string>
+    <string name="day_13">Day 13</string>
+    <string name="day_14">Day 14</string>
+    <string name="day_15">Day 15</string>
+    <string name="day_16">Day 16</string>
+    <string name="day_17">Day 17</string>
+    <string name="day_18">Day 18</string>
+    <string name="day_19">Day 19</string>
+    <string name="day_20">Day 20</string>
+    <string name="day_21">Day 21</string>
+    <string name="day_22">Day 22</string>
+    <string name="day_23">Day 23</string>
+    <string name="day_24">Day 24</string>
+    <string name="day_25">Day 25</string>
+    <string name="day_26">Day 26</string>
+    <string name="day_27">Day 27</string>
+    <string name="day_28">Day 28</string>
+    <string name="day_29">Day 29</string>
+    <string name="day_30">Day 30</string>
+
+    <string name="movie_1">The Dark Knight</string>
+    <string name="movie_2">Harry Potter</string>
+    <string name="movie_3">Terminator</string>
+    <string name="movie_4">Avengers</string>
+    <string name="movie_5">Game of Thrones</string>
+    <string name="movie_6">Prison Break</string>
+    <string name="movie_7">Gladiator</string>
+    <string name="movie_8">Interstellar</string>
+    <string name="movie_9">Coco</string>
+    <string name="movie_10">Sherlock</string>
+
+    <string name="description_1">When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.</string>
+    <string name="description_2">As Harry, Ron and Hermione race against time and evil to destroy the Horcruxes, they uncover the existence of the three most powerful objects in the wizarding world: the Deathly Hallows.</string>
+    <string name="description_3">A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her 10-year old adolescent son John from an even more advanced and powerful cyborg.</string>
+    <string name="description_4">The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.</string>
+    <string name="description_5">Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.</string>
+    <string name="description_6">Due to a political conspiracy, an innocent man is sent to death row and his only hope is his brother, who makes it his mission to deliberately get himself sent to the same prison in order to break the both of them out, from the inside.</string>
+    <string name="description_7">A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.</string>
+    <string name="description_8">A team of explorers travel through a wormhole in space in an attempt to ensure humanity\'s survival.</string>
+    <string name="description_9">Aspiring musician Miguel, confronted with his family\'s ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.</string>
+    <string name="description_10">A modern update finds the famous sleuth and his doctor partner solving crime in 21st-century London.</string>
+
+</resources>
