@@ -49,6 +49,7 @@ class TimerService : Service() {
             }
             Log.d("TimerService", "Таймер завершён!")
             sendNotification("Таймер завершён!")
+            delay(1500)
             stopSelf()
         }
     }
