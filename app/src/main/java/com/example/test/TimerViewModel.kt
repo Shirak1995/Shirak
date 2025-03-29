@@ -6,28 +6,38 @@ import android.os.Build
 import android.os.CountDownTimer
 import androidx.lifecycle.AndroidViewModel
 import androidx.compose.runtime.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class TimerViewModel(application: Application) : AndroidViewModel(application) {
 
     private var countDownTimer: CountDownTimer? = null
-    private var initialTimeInMillis: Long = 0L
+    private var remainingTimeInMillis: Long = 0L
 
     // Состояние для оставшегося времени
     var timeLeft by mutableStateOf("00:00")
         private set
     var isTimerRunning by mutableStateOf(false)
         private set
+    var isPaused by mutableStateOf(false)
+        private set
 
     fun startTimer(durationMinutes: Int) {
-        if (isTimerRunning) return // Если таймер уже работает, ничего не делать
+        if (isTimerRunning && !isPaused) return // Если таймер уже идет, ничего не делать
 
-        initialTimeInMillis = (durationMinutes * 60 * 1000).toLong()
+        if (isPaused) {
+            resumeTimer()
+            return
+        }
 
-        // Запуск таймера
-        countDownTimer = object : CountDownTimer(initialTimeInMillis, 1000) {
+        remainingTimeInMillis = (durationMinutes * 60 * 1000).toLong()
+        launchTimer(remainingTimeInMillis)
+    }
+
+    private fun launchTimer(timeInMillis: Long) {
+        countDownTimer?.cancel()
+
+        countDownTimer = object : CountDownTimer(timeInMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
+                remainingTimeInMillis = millisUntilFinished
                 val minutesLeft = (millisUntilFinished / 1000) / 60
                 val secondsLeft = (millisUntilFinished / 1000) % 60
                 timeLeft = String.format("%02d:%02d", minutesLeft, secondsLeft)
@@ -40,31 +50,25 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
         }
         countDownTimer?.start()
         isTimerRunning = true
-
-        // Отправляем сервис для работы в фоновом режиме
-        val context = getApplication<Application>().applicationContext
-        val intent = Intent(context, TimerService::class.java)
-        intent.putExtra("duration", durationMinutes * 60 * 1000L)
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            context.startForegroundService(intent)
-        } else {
-            context.startService(intent)
-        }
+        isPaused = false
     }
 
     fun stopTimer() {
+        if (!isTimerRunning) return
         countDownTimer?.cancel()
-        timeLeft = "00:00"
+        isPaused = true
         isTimerRunning = false
-
-        // Останавливаем сервис
-        val intent = Intent(getApplication(), TimerService::class.java)
-        getApplication<Application>().stopService(intent)
     }
 
     fun resetTimer() {
-        stopTimer()
+        countDownTimer?.cancel()
         timeLeft = "00:00"
+        remainingTimeInMillis = 0L
+        isTimerRunning = false
+        isPaused = false
+    }
+
+    private fun resumeTimer() {
+        launchTimer(remainingTimeInMillis)
     }
 }
