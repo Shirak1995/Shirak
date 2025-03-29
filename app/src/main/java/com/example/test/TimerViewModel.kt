@@ -4,27 +4,31 @@ import android.app.Application
 import android.content.Intent
 import android.os.Build
 import android.os.CountDownTimer
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.compose.runtime.*
 
 class TimerViewModel(application: Application) : AndroidViewModel(application) {
 
     private var countDownTimer: CountDownTimer? = null
-    private var remainingTimeInMillis: Long = 0L
-    private var isPaused = false
-
-    // Состояние для оставшегося времени
+    var remainingTimeInMillis by mutableStateOf(0L) // Сохраняем оставшееся время
+        private set
+    var isPaused by mutableStateOf(false) // Сделали публичным с возможностью только внутреннего изменения
+        private set
     var timeLeft by mutableStateOf("00:00")
         private set
     var isTimerRunning by mutableStateOf(false)
         private set
 
-    fun startTimer(durationMinutes: Int) {
-        if (isTimerRunning) return // Если таймер уже работает, ничего не делать
+    fun startTimer(durationMinutes: Int? = null) {
+        if (isTimerRunning) return
 
+        // Если таймер запущен впервые или был сброшен - берем новое значение
         if (!isPaused) {
-            remainingTimeInMillis = (durationMinutes * 60 * 1000).toLong()
+            remainingTimeInMillis = (durationMinutes ?: 1) * 60 * 1000L
         }
+
+        Log.d("TimerViewModel", "Старт таймера. Оставшееся время: $remainingTimeInMillis мс")
 
         countDownTimer = object : CountDownTimer(remainingTimeInMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
@@ -37,13 +41,13 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
             override fun onFinish() {
                 timeLeft = "00:00"
                 isTimerRunning = false
+                //remainingTimeInMillis = 0L
             }
         }
         countDownTimer?.start()
         isTimerRunning = true
         isPaused = false
 
-        // Отправляем сервис для работы в фоновом режиме
         startTimerService(remainingTimeInMillis)
     }
 
@@ -53,8 +57,11 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
             isPaused = true
             isTimerRunning = false
 
+            Log.d("TimerViewModel", "Таймер остановлен. Оставшееся время: $remainingTimeInMillis мс")
             // Останавливаем сервис
             val intent = Intent(getApplication(), TimerService::class.java)
+            intent.putExtra("duration", remainingTimeInMillis) // Передаем оставшееся время
+            intent.action = "STOP_TIMER"
             getApplication<Application>().stopService(intent)
         }
     }
@@ -71,6 +78,9 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
         val intent = Intent(context, TimerService::class.java)
         intent.putExtra("duration", timeInMillis)
 
+        Log.d("TimerViewModel", "Запуск сервиса. Передаю в TimerService: $timeInMillis мс") // Новый лог
+
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(intent)
         } else {
@@ -78,3 +88,4 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 }
+
