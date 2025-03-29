@@ -31,21 +31,18 @@ class TimerService : Service() {
         val action = intent?.action
         if (action == null || action != "STOP_TIMER") {
             val duration = intent?.getLongExtra("duration", 0L) ?: 0L
-        Log.d("TimerService", "Получено из TimerViewModel: $duration мс") // Новый лог
 
-        startForeground(1, createNotification("Таймер запущен")) // Добавляем Foreground Service
+        startForeground(1, createNotification("Таймер запущен"))
         startTimer(duration)
         } else {
-            // Обрабатываем остановку таймера
             stopTimer()
         }
         return START_STICKY
     }
 
     private fun startTimer(durationMillis: Long) {
-        if (isTimerRunning) return // Если таймер уже работает, не начинаем новый
+        if (isTimerRunning) return
 
-        Log.d("TimerService", "Таймер запущен на ${durationMillis / 60000} минут")
         remainingTime = durationMillis
         isTimerRunning = true
 
@@ -117,9 +114,9 @@ class TimerService : Service() {
     }
 
     private fun stopTimer() {
-        isTimerRunning = false // Останавливаем таймер
-        timerJob?.cancel() // Прерываем выполнение
-        stopForeground(true) // Убираем уведомление
-        stopSelf() // Завершаем работу сервиса
+        isTimerRunning = false
+        timerJob?.cancel()
+        stopForeground(true)
+        stopSelf()
     }
 }

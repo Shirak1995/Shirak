@@ -11,10 +11,9 @@ import com.example.test.ui.TimerViewModel
 @Composable
 fun TimerScreen(timerViewModel: TimerViewModel = viewModel()) {
     var time by remember { mutableStateOf("1") }
-    var isInputValid by remember { mutableStateOf(true) } // Состояние для проверки корректности ввода
-    var errorMessage by remember { mutableStateOf("") } // Сообщение об ошибке
+    var isInputValid by remember { mutableStateOf(true) }
+    var errorMessage by remember { mutableStateOf("") }
 
-    // Проверка на корректность ввода
     fun validateInput(input: String): Boolean {
         return input.toIntOrNull() != null && input.toInt() > 0
     }
@@ -27,7 +26,6 @@ fun TimerScreen(timerViewModel: TimerViewModel = viewModel()) {
             value = time,
             onValueChange = {
                 time = it
-                // При изменении ввода проверяем его корректность
                 if (validateInput(it)) {
                     isInputValid = true
                     errorMessage = ""
@@ -37,19 +35,17 @@ fun TimerScreen(timerViewModel: TimerViewModel = viewModel()) {
                 }
             },
             label = { Text("Минуты") },
-            isError = !isInputValid // Показываем ошибку, если ввод некорректный
+            isError = !isInputValid
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Отображение оставшегося времени
         Text(
             text = "Оставшееся время: ${timerViewModel.timeLeft}",
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Если есть сообщение об ошибке, отображаем его
         if (!isInputValid) {
             Text(
                 text = errorMessage,
@@ -60,7 +56,6 @@ fun TimerScreen(timerViewModel: TimerViewModel = viewModel()) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Кнопки управления
         Row {
             Button(
                 onClick = {
@@ -68,7 +63,7 @@ fun TimerScreen(timerViewModel: TimerViewModel = viewModel()) {
                         timerViewModel.startTimer(time.toInt())
                     }
                 },
-                enabled = isInputValid // Блокируем кнопку, если ввод некорректен
+                enabled = isInputValid
             ) {
                 Text("Старт")
             }

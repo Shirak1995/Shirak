@@ -5,7 +5,6 @@ import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.test.ui.screens.TimerScreen
 import com.example.test.ui.theme.TestTheme
@@ -25,11 +24,5 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-    }
-
-    private fun requestPermissions() {
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) {
-            // Handle permission result
-        }.launch(Manifest.permission.POST_NOTIFICATIONS)
     }
 }
