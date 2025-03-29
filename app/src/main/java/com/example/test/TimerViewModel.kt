@@ -11,31 +11,22 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
 
     private var countDownTimer: CountDownTimer? = null
     private var remainingTimeInMillis: Long = 0L
+    private var isPaused = false
 
     // Состояние для оставшегося времени
     var timeLeft by mutableStateOf("00:00")
         private set
     var isTimerRunning by mutableStateOf(false)
         private set
-    var isPaused by mutableStateOf(false)
-        private set
 
     fun startTimer(durationMinutes: Int) {
-        if (isTimerRunning && !isPaused) return // Если таймер уже идет, ничего не делать
+        if (isTimerRunning) return // Если таймер уже работает, ничего не делать
 
-        if (isPaused) {
-            resumeTimer()
-            return
+        if (!isPaused) {
+            remainingTimeInMillis = (durationMinutes * 60 * 1000).toLong()
         }
 
-        remainingTimeInMillis = (durationMinutes * 60 * 1000).toLong()
-        launchTimer(remainingTimeInMillis)
-    }
-
-    private fun launchTimer(timeInMillis: Long) {
-        countDownTimer?.cancel()
-
-        countDownTimer = object : CountDownTimer(timeInMillis, 1000) {
+        countDownTimer = object : CountDownTimer(remainingTimeInMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 remainingTimeInMillis = millisUntilFinished
                 val minutesLeft = (millisUntilFinished / 1000) / 60
@@ -51,24 +42,39 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
         countDownTimer?.start()
         isTimerRunning = true
         isPaused = false
+
+        // Отправляем сервис для работы в фоновом режиме
+        startTimerService(remainingTimeInMillis)
     }
 
     fun stopTimer() {
-        if (!isTimerRunning) return
-        countDownTimer?.cancel()
-        isPaused = true
-        isTimerRunning = false
+        if (isTimerRunning) {
+            countDownTimer?.cancel()
+            isPaused = true
+            isTimerRunning = false
+
+            // Останавливаем сервис
+            val intent = Intent(getApplication(), TimerService::class.java)
+            getApplication<Application>().stopService(intent)
+        }
     }
 
     fun resetTimer() {
-        countDownTimer?.cancel()
-        timeLeft = "00:00"
+        stopTimer()
         remainingTimeInMillis = 0L
-        isTimerRunning = false
+        timeLeft = "00:00"
         isPaused = false
     }
 
-    private fun resumeTimer() {
-        launchTimer(remainingTimeInMillis)
+    private fun startTimerService(timeInMillis: Long) {
+        val context = getApplication<Application>().applicationContext
+        val intent = Intent(context, TimerService::class.java)
+        intent.putExtra("duration", timeInMillis)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            context.startForegroundService(intent)
+        } else {
+            context.startService(intent)
+        }
     }
 }
