@@ -43,7 +43,13 @@ class TimerService : Service() {
         timerJob = CoroutineScope(Dispatchers.Main).launch {
             while (remainingTime > 0) {
                 Log.d("TimerService", "Осталось ${remainingTime / 60000} минут")
-                sendNotification("Осталось ${remainingTime / 60000} минут")
+                val minutesLeft = remainingTime / 60000
+                val secondsLeft = (remainingTime % 60000) / 1000
+                if (minutesLeft >= 1) {
+                    sendNotification("Осталось $minutesLeft минут $secondsLeft секунд")
+                } else {
+                    sendNotification("Осталось $secondsLeft секунд")
+                }
                 delay(60_000)
                 remainingTime -= 60_000
             }
