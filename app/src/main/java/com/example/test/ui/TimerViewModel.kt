@@ -1,4 +1,4 @@
-package com.example.test
+package com.example.test.ui
 
 import android.app.Application
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.os.CountDownTimer
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.compose.runtime.*
+import com.example.test.service.TimerService
 
 class TimerViewModel(application: Application) : AndroidViewModel(application) {
 

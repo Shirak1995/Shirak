@@ -1,14 +1,13 @@
-package com.example.test
+package com.example.test.ui
 
 import android.Manifest
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.test.TimerScreen
+import com.example.test.ui.screens.TimerScreen
 import com.example.test.ui.theme.TestTheme
 
 class MainActivity : ComponentActivity() {

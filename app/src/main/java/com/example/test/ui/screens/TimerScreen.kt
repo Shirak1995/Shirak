@@ -1,4 +1,4 @@
-package com.example.test
+package com.example.test.ui.screens
 
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.foundation.layout.*
@@ -6,7 +6,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.test.TimerViewModel
+import com.example.test.ui.TimerViewModel
 
 @Composable
 fun TimerScreen(timerViewModel: TimerViewModel = viewModel()) {
