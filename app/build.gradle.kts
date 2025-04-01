@@ -68,5 +68,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation ("org.jetbrains.kotlin:kotlin-script-runtime:2.1.20") // Убедитесь, что версия соответствует вашей версии Kotlin
 
 }
